@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* body {
+  background: rgb(170, 244, 255);
+  background: linear-gradient(59deg, rgba(170, 244, 255, 1) 0%, rgba(229, 238, 240, 1) 100%);
+} */
+
+
+.navbar {
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  line-height: 20px;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  display: grid;
+  justify-content: center;
+  /* border-bottom: 0.5px solid #3f51b5; */
+  box-shadow: "5px 5px 10px black";
+}
+
+.nav-link {
+  font-weight: 200 !important;
+  margin-left: 20px;
+  color: rgb(0, 0, 0) !important;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  width: 0%;
+  border-bottom: 2px solid #3f51b5;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s linear;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-brand {
+  position: relative;
+  border: 1px solid #3f51b5;
+  padding: 0;
+}
+
+.navbar-brand::after {
+  content: "GLY.";
+  color: rgb(255, 255, 255);
+  background-color: #3f51b5;
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top: 1;
+
+}
+
+/* login */
+.login {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffe7cb;
+
+}
+
+.login-info {
+
+  /* text-align: center; */
+  border: 1px solid rgb(213 203 203);
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #d6c2a6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 40rem;
+  background-color: white;
+}
+
+.login-info .btn {
+  width: 50%;
+  background-color: #3f51b5;
+}
+
+.navi {
+  border: none;
+  background: no-repeat;
+  margin-bottom: 1rem;
+  color: blue;
+}
+
+.form-control {
+  width: 20rem;
+}
+
+/* home page */
+.secton1 {
+  height: 100vh;
+  background-color: #ffe7cb;
+  display: flex;
+  font-size: 100%;
+}
+
+.first,
+.second {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first {
+  padding: 3rem;
+  flex-direction: column;
+  align-items: start;
+}
+
+.big {
+  font-size: 170%;
+  margin-bottom: 2rem;
+}
+
+.small {
+  font-size: 100%;
+}
+
+.first .btn {
+  width: 40%;
+  background-color: #3f51b5;
+  border-radius: 0;
+  margin-top: 1.5rem;
+  color: white;
+}
+
+.second img {
+  width: 100%;
+}
+
+
+
+/* blog page */
+.blog-page {
+  background-color: #ffe7cb;
+  padding: 1.5rem 1rem;
+  min-height: 100vh;
+}
+
+.blog {
+  width: 57%;
+}
+
+
+/* footer */
+
+.ft {
+  padding-top: 17px;
+  text-align: center;
+  background-color: #3f51b5;
+  color: white;
+  font-size: 12px;
+}
+
+
+/* waves */
+.custom-shape-divider-top-1697123847 {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1697123847 svg {
+  position: relative;
+  display: block;
+  width: calc(113% + 1.3px);
+  height: 130px;
+}
+
+.custom-shape-divider-top-1697123847 .shape-fill {
+  fill: #FFFFFF;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-top-1697123847 svg {
+    width: calc(125% + 1.3px);
+    height: 110px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .secton1 {
+    font-size: 80%;
+  }
+
+  .blog {
+    width: 60%;
+  }
+}
+
+@media (max-width: 840px) {
+  .secton1 {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-top: 26rem;
+    height: 110vh;
+  }
+
+  .first {
+    padding: 1rem;
+    margin: 2rem 0rem;
+  }
+
+  .blog {
+    width: 80%;
+  }
+
+  .login-info {
+    width: 35rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .secton1 {
+    font-size: 60%;
+  }
+
+  .btn {
+    font-size: 60%;
+  }
+
+  .second {
+    width: 80%;
+  }
+
+  .login-info {
+    width: 25rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .secton1 {
+    padding-top: 1rem;
+    height: 90vh;
+  }
+
+  .first {
+    margin: 0;
+    justify-content: start;
+  }
+
+  .big {
+    font-size: 130%;
+    margin-bottom: 1rem;
+  }
+
+  .form-control {
+    width: 11rem;
+  }
+
+  .login-info {
+    width: 100%;
+  }
+
+  .ft {
+    font-size: 50%;
+  }
+
+  .first .btn {
+    width: 50%;
+  }
+}
