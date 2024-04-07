@@ -3,13 +3,87 @@
   padding: 0;
 }
 
+/* profile */
+.user-details {
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-details h1 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-details p {
+  font-size: 16px;
+  color: #ffffff;
+  margin: 8px;
+}
 
 
-/* body {
-  background: rgb(170, 244, 255);
-  background: linear-gradient(59deg, rgba(170, 244, 255, 1) 0%, rgba(229, 238, 240, 1) 100%);
-} */
+/* suggestion */
+.list-group {
+  position: absolute;
+  width: calc(100% - 0px);
+  /* Adjusted width */
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 999;
+  border: 1px solid #ced4da;
+  border-radius: 0 0 5px 5px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  top: calc(100% + 5px);
+  left: 0;
+}
 
+.suggestion-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.suggestion-item img {
+  width: 50px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.suggestion-item h5 {
+  margin-bottom: 0;
+  font-size: 0.9em;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestion-item.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.form-control {
+  width: calc(100% - 30px);
+}
 
 .navbar {
   font-family: "Poppins", sans-serif;
@@ -19,8 +93,13 @@
   background-color: #ffffff;
   display: grid;
   justify-content: center;
-  /* border-bottom: 0.5px solid #3f51b5; */
   box-shadow: "5px 5px 10px black";
+}
+
+.nav-left {
+  display: flex;
+  margin-right: 10px;
+  align-items: center;
 }
 
 .nav-link {
@@ -74,8 +153,6 @@
 }
 
 .login-info {
-
-  /* text-align: center; */
   border: 1px solid rgb(213 203 203);
   border-radius: 20px;
   box-shadow: 5px 5px 10px #d6c2a6;
@@ -155,6 +232,19 @@
   background-color: #ffe7cb;
   padding: 1.5rem 1rem;
   min-height: 100vh;
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-blog {
+
+  width: 57%;
+
 }
 
 .blog {
@@ -239,7 +329,7 @@
   }
 
   .btn {
-    font-size: 60%;
+    font-size: 90%;
   }
 
   .second {

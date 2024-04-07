@@ -10,6 +10,8 @@ import BlogDetails from './pages/BlogDetails';
 import { Toaster } from "react-hot-toast";
 import Home from './pages/Home';
 import Footer from './components/Footer';
+import Following from './pages/Following';
+import SingleBlog from './pages/SingleBlog';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blog/:id" element={<SingleBlog />} />
+        <Route path="/following-blogs" element={<Following />} />
         <Route path="/my-blogs" element={<UserBlogs />} />
         <Route path='/blog-details/:id' element={<BlogDetails />} />
         <Route path="/create-blog" element={<CreateBlog />} />

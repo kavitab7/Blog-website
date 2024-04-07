@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
-import { authActions } from '../redux/store';
+import { login } from '../redux/store';
 import toast from "react-hot-toast";
 
 const Login = () => {
@@ -27,7 +27,8 @@ const Login = () => {
             })
             if (data.success) {
                 localStorage.setItem('userId', data?.user._id)
-                dispatch(authActions.login());
+                localStorage.setItem('token', data?.token)
+                dispatch(login({ user: data.user, token: data.token }));
                 toast.success('Login successfully')
                 navigate('/')
             }

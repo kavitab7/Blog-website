@@ -1,5 +1,7 @@
 const userModel = require('./userModel')
 const bcrypt = require('bcrypt')
+const JWT = require('jsonwebtoken');
+const blogModel = require('./blogModel');
 //register
 exports.registerController = async (req, res) => {
     try {
@@ -79,10 +81,14 @@ exports.loginController = async (req, res) => {
                 message: 'invalid username or password'
             })
         }
+        const token = JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: '7d'
+        })
         return res.status(200).send({
             success: true,
             message: 'login successfully',
-            user
+            user,
+            token
         })
 
 
@@ -94,3 +100,58 @@ exports.loginController = async (req, res) => {
         })
     }
 }
+
+exports.followUser = async (req, res) => {
+    const { userId, userToFollowId } = req.params;
+    try {
+        await userModel.findByIdAndUpdate(userToFollowId, { $addToSet: { followers: userId } });
+        await userModel.findByIdAndUpdate(userId, { $addToSet: { following: userToFollowId } });
+        res.json({ success: true, message: 'User followed successfully' });
+    } catch (error) {
+        console.error('Error following user:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+};
+
+exports.unfollowUser = async (req, res) => {
+    const { userId, userToFollowId } = req.params;
+
+    try {
+        await userModel.findByIdAndUpdate(userToFollowId, { $pull: { followers: userId } });
+        await userModel.findByIdAndUpdate(userId, { $pull: { following: userToFollowId } });
+        res.json({ success: true, message: 'User unfollowed successfully' });
+    } catch (error) {
+        console.error('Error unfollowing user:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+};
+
+exports.checkFollowStatus = async (req, res) => {
+    const { userId, userToCheckId } = req.params;
+    try {
+        const user = await userModel.findById(userId);
+        const isFollowing = user.following.includes(userToCheckId);
+
+        res.json({ success: true, following: isFollowing });
+    } catch (error) {
+        console.error('Error checking follow status:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+};
+
+exports.getFollowingUsersBlogs = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const user = await userModel.findById(userId);
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+        const followingIds = user.following;
+        const blogs = await blogModel.find({ user: { $in: followingIds } }).populate('user', 'username').sort({ createdAt: -1 });
+
+        res.json({ success: true, blogs });
+    } catch (error) {
+        console.error('Error fetching following users blogs:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+};
