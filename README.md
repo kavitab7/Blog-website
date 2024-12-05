@@ -1,6 +1,32 @@
-# BlogLy - Blog MERN website
+# BlogLy - Blog Website
 
-Click here to see website - https://bloglymern-app.onrender.com
+A full-featured blogging platform built with the MERN stack (MongoDB, Express.js, React.js, Node.js). BlogLy offers secure user authentication, seamless content management, and interactive community engagement features.
+
+## 🌐 Live Demo
+[Visit BlogLy](#) https://bloglymern-app.onrender.com
+
+## 💻 Tech Stack
+- **Frontend:** React.js
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **State Management:** React Redux
+- **Authentication:** JWT (JSON Web Tokens)
+- **API Testing:** Postman
+
+## 🚀 Features
+
+### Core Functionalities:
+- **User Authentication:** Secure signup/login system using JWT for authorization.
+- **CRUD Operations:** Create, Read, Update, and Delete blog posts.
+- **Interactive Commenting System:** Users can comment, like, and reply to blog posts.
+- **Infinite Scrolling:** Seamless browsing experience by loading posts dynamically as you scroll.
+  
+### Enhanced User Interaction:
+- **Follow/Unfollow Users:** Connect with other bloggers and stay updated on their latest posts.
+- **Likes and Replies:** Engage with content through likes and threaded replies.
+  
+### Optimized Search:
+- **Debounced Search:** Faster and more efficient search with input debouncing to reduce server calls.
 
 ![image](https://github.com/kavitab7/Blog-website/assets/112501593/4718cf7c-0a97-49c9-9c8f-7f08c3e137e8)
 
